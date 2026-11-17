@@ -28,6 +28,8 @@
 - [Limitations and Differences](#limitations-and-differences)
 - [Quick Reference for AI Consumers](#quick-reference-for-ai-consumers)
 
+---
+
 ## Image and Container Runtime
 
 The unmodified upstream `ghcr.io/seerr-team/seerr` image supports x86_64 and aarch64. `seerr-sub` runs the upstream entrypoint and default npm command as the image’s `node` user. Node listens on IPv6 and IPv4. It receives this server’s root CA through `NODE_EXTRA_CA_CERTS` for manually configured HTTPS notification and service URLs.
@@ -61,7 +63,7 @@ Addresses and exported keys are watched reactively; a changed key or bridge addr
 
 Jellyfin is required and supplies the libraries and media-server authentication. Radarr and Sonarr become optional running dependencies when selected. All expect their `primary` health checks. Declarations report dependency problems; they do not themselves gate the Seerr daemon after initial setup.
 
-Jellyfin’s current package exports its port but has no public integration credential. Connect Jellyfin authenticates an existing Jellyfin administrator using Seerr’s own client and requests an application API key. The submitted Jellyfin password is not stored by the package. Seerr retains its media-server session token and application API key. Reconnecting reuses a valid API key for the same server rather than creating another key on every start. Jellyfin’s host id is `main`; its port is imported from the pinned package source.
+Jellyfin’s current package exports its port but has no public integration credential. Connect Jellyfin authenticates an existing Jellyfin administrator using Seerr’s own client and requests an application API key. The submitted Jellyfin password is not stored by the package. Seerr retains its media-server session token and application API key. Reconnecting reuses a valid API key for the same server rather than creating another key on every start. Jellyfin’s host id is `main`; its port is imported from the Jellyfin package source.
 
 Radarr and Sonarr export their host ids and ports from `startos/utils.ts` and their keys as `public/api-key`. The connection forms read those exports and query each service’s available profiles and root folders. Configure those in the provider first. Missing services or credentials leave empty choices; reopening the form retries discovery. Disconnection remains available when a provider is offline.
 

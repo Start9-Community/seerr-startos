@@ -45,6 +45,7 @@ export default {
     '40': 'Jellyfin conectado',
     '41': 'Establece ahora la contraseña de administrador de Seerr. Selecciona las bibliotecas en Seerr después de iniciar sesión.',
     '42': 'Se requiere una cuenta de administrador de Jellyfin.',
+    '43': 'Jellyfin rechazó el nombre de usuario o la contraseña.',
   },
   de_DE: {
     '0': 'Stellt Medienbibliotheken und Benutzerauthentifizierung bereit.',
@@ -90,6 +91,7 @@ export default {
     '40': 'Jellyfin verbunden',
     '41': 'Lege als Nächstes das Seerr-Administratorpasswort fest. Wähle nach der Anmeldung die Bibliotheken in Seerr aus.',
     '42': 'Ein Jellyfin-Administratorkonto ist erforderlich.',
+    '43': 'Jellyfin hat den Benutzernamen oder das Passwort abgelehnt.',
   },
   pl_PL: {
     '0': 'Udostępnia biblioteki multimediów i uwierzytelnianie użytkowników.',
@@ -135,6 +137,7 @@ export default {
     '40': 'Połączono Jellyfin',
     '41': 'Teraz ustaw hasło administratora Seerr. Po zalogowaniu wybierz biblioteki w Seerr.',
     '42': 'Wymagane jest konto administratora Jellyfin.',
+    '43': 'Jellyfin odrzucił nazwę użytkownika lub hasło.',
   },
   fr_FR: {
     '0': 'Fournit les bibliothèques multimédias et l’authentification des utilisateurs.',
@@ -180,5 +183,6 @@ export default {
     '40': 'Jellyfin connecté',
     '41': 'Définissez ensuite le mot de passe administrateur de Seerr. Sélectionnez les bibliothèques dans Seerr après la connexion.',
     '42': 'Un compte administrateur Jellyfin est requis.',
+    '43': 'Jellyfin a refusé le nom d’utilisateur ou le mot de passe.',
   },
 } satisfies Record<string, LangDict>

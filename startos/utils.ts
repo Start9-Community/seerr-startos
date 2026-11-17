@@ -149,7 +149,9 @@ async function run(input) {
     if (input.mode === 'connect') {
       const deviceId = 'BOT_seerr';
       const client = new JellyfinAPI('http://' + input.address, undefined, deviceId);
-      const account = await client.login(input.username, input.password);
+      const account = await client.login(input.username, input.password).catch(e => {
+        throw e.statusCode === 401 ? new Error(input.errors.loginRejected) : e;
+      });
       if (!account.User.Policy.IsAdministrator) throw new Error(input.errors.administratorRequired);
       const tokenClient = new JellyfinAPI('http://' + input.address, account.AccessToken, deviceId);
       let apiKey = settings.jellyfin.apiKey;
@@ -217,7 +219,7 @@ let input = '';
 process.stdin.setEncoding('utf8');
 process.stdin.on('data', chunk => input += chunk);
 process.stdin.on('end', () => run(JSON.parse(input)).then(() => process.exit(0)).catch(error => {
-  console.error(error.message); process.exit(1);
+  console.error(error.message || error.errorCode); process.exit(1);
 }));
 `
 
@@ -244,6 +246,7 @@ export async function maintain(
             administratorRequired: i18n(
               'A Jellyfin administrator account is required.',
             ),
+            loginRejected: i18n('Jellyfin rejected the username or password.'),
           },
         }),
         timeout: 120000,

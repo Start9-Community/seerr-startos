@@ -5,7 +5,7 @@ export const manifest = setupManifest({
   id: 'seerr',
   title: 'Seerr',
   license: 'MIT',
-  packageRepo: 'https://github.com/BeeJoe/seerr-startos',
+  packageRepo: 'https://github.com/Start9-Community/seerr-startos',
   upstreamRepo: 'https://github.com/seerr-team/seerr',
   marketingUrl: 'https://seerr.dev',
   donationUrl: 'https://opencollective.com/seerr',

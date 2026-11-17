@@ -44,6 +44,7 @@ const dict = {
   'Jellyfin Connected': 40,
   'Set the Seerr admin password next. Select libraries in Seerr after signing in.': 41,
   'A Jellyfin administrator account is required.': 42,
+  'Jellyfin rejected the username or password.': 43,
 } as const
 
 export type I18nKey = keyof typeof dict
